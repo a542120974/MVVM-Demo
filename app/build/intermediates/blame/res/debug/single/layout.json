@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\Project\\DatabindingDemo\\MVVM-Demo\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "D:\\Project\\DatabindingDemo\\MVVM-Demo\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Project\\DatabindingDemo\\MVVM-Demo\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_main_list.xml",
+        "source": "D:\\Project\\DatabindingDemo\\MVVM-Demo\\app\\src\\main\\res\\layout\\item_main_list.xml"
+    }
+]

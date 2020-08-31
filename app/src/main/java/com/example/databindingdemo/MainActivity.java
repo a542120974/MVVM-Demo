@@ -35,7 +35,10 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewModel.request.getLiveData().observe(this, listBeans -> viewModel.data.setValue(listBeans));
+        viewModel.request.getLiveData().observe(this, listBeans -> {
+            viewModel.data.setValue(listBeans);
+            viewModel.notify.setValue(true);
+        });
 
         viewModel.request.request();
     }
@@ -57,6 +60,7 @@ public class MainActivity extends BaseActivity {
                     }
 
                     viewModel.data.postValue(li);
+                    viewModel.notify.setValue(true);
                 }
             }.start();
 

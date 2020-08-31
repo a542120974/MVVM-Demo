@@ -57,9 +57,8 @@ public abstract class BaseDataBindingAdapter<M, B extends ViewDataBinding> exten
 
     @Override
     public void submitList(@Nullable List<M> list) {
-        super.submitList(list, () -> {
-            super.submitList(list == null ? new ArrayList<>() : new ArrayList<>(list));
-        });
+        super.submitList(list, () ->
+                super.submitList(list == null ? new ArrayList<>() : new ArrayList<>(list)));
     }
 
     public abstract int getLayoutResId(int viewType);

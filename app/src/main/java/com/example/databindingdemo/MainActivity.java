@@ -3,9 +3,14 @@ package com.example.databindingdemo;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.databindingdemo.adapter.ListAdapter;
 import com.example.databindingdemo.base.BaseActivity;
 import com.example.databindingdemo.bean.ListBean;
+import com.example.databindingdemo.model.EventViewModel;
 import com.example.databindingdemo.model.ListBeanViewModel;
 import com.example.databindingdemo.utils.DataBindingConfig;
 
@@ -15,6 +20,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
     private ListBeanViewModel viewModel;
+    private EventViewModel eventViewModel;
 
     @Override
     protected DataBindingConfig getDataBindingConfig() {
@@ -25,16 +31,15 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initViewModel() {
-        viewModel = new ListBeanViewModel();
+        viewModel = getActivityViewModel(ListBeanViewModel.class);
+        eventViewModel = getAppViewModel(EventViewModel.class);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewModel.request.getLiveData().observe(this, listBeans -> {
-            viewModel.data.setValue(listBeans);
-        });
+        viewModel.request.getLiveData().observe(this, listBeans -> viewModel.data.setValue(listBeans));
 
         viewModel.request.request();
     }

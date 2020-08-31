@@ -10,8 +10,6 @@ import java.util.List;
 
 public class ListBeanViewModel extends ViewModel {
 
-    public MutableLiveData<Boolean> notify = new MutableLiveData<>();
-
     public MutableLiveData<List<ListBean>> data = new MutableLiveData<>();
 
     public ListBeanRequest request = new ListBeanRequest();

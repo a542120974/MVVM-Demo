@@ -5,12 +5,8 @@ import android.widget.Toast;
 
 import com.example.databindingdemo.adapter.ListAdapter;
 import com.example.databindingdemo.base.BaseActivity;
-import com.example.databindingdemo.bean.ListBean;
 import com.example.databindingdemo.model.ListBeanViewModel;
-import com.example.databindingdemo.request.DataResult;
 import com.example.databindingdemo.utils.DataBindingConfig;
-
-import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -32,8 +28,12 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewModel.request.request(listBeans -> viewModel.data.setValue(listBeans));
-        viewModel.notify.setValue(true);
+        viewModel.request.getLiveData().observe(this, listBeans -> {
+            viewModel.data.setValue(listBeans);
+            viewModel.notify.setValue(true);
+        });
+
+        viewModel.request.request();
     }
 
     public class Click {

@@ -14,6 +14,12 @@ public class DiffUtils {
     private DiffUtils() {
     }
 
+    public static DiffUtils getDiffUtil() {
+        if (diffUtil == null)
+            diffUtil = new DiffUtils();
+        return diffUtil;
+    }
+
     public DiffUtil.ItemCallback<ListBean> getListBeanItemCallback() {
         if (listBeanItemCallback == null)
             listBeanItemCallback = new DiffUtil.ItemCallback<ListBean>() {
@@ -28,11 +34,5 @@ public class DiffUtils {
                 }
             };
         return listBeanItemCallback;
-    }
-
-    public static DiffUtils getDiffUtil() {
-        if (diffUtil == null)
-            diffUtil = new DiffUtils();
-        return diffUtil;
     }
 }

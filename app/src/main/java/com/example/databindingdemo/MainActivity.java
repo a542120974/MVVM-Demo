@@ -5,8 +5,12 @@ import android.widget.Toast;
 
 import com.example.databindingdemo.adapter.ListAdapter;
 import com.example.databindingdemo.base.BaseActivity;
+import com.example.databindingdemo.bean.ListBean;
 import com.example.databindingdemo.model.ListBeanViewModel;
 import com.example.databindingdemo.utils.DataBindingConfig;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -30,7 +34,6 @@ public class MainActivity extends BaseActivity {
 
         viewModel.request.getLiveData().observe(this, listBeans -> {
             viewModel.data.setValue(listBeans);
-            viewModel.notify.setValue(true);
         });
 
         viewModel.request.request();
@@ -38,7 +41,27 @@ public class MainActivity extends BaseActivity {
 
     public class Click {
 
-        public void toast() {
+        public void toast1() {
+            List<ListBean> li = new ArrayList<>();
+            li.add(new ListBean("1111"));
+            li.add(new ListBean("222"));
+            li.add(new ListBean("333"));
+            li.add(new ListBean("444"));
+            li.add(new ListBean("555"));
+            li.add(new ListBean("666"));
+            viewModel.data.setValue(li);
+            Toast.makeText(getApplicationContext(), "click", Toast.LENGTH_SHORT).show();
+        }
+
+        public void toast2() {
+            List<ListBean> li = new ArrayList<>();
+            li.add(new ListBean("aaa"));
+            li.add(new ListBean("ssss"));
+            li.add(new ListBean("dddd"));
+            li.add(new ListBean("ffff"));
+            li.add(new ListBean("ggg"));
+            li.add(new ListBean("hhh"));
+            viewModel.data.setValue(li);
             Toast.makeText(getApplicationContext(), "click", Toast.LENGTH_SHORT).show();
         }
     }

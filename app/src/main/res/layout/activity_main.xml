@@ -27,21 +27,30 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             adapter="@{adapter}"
-            notifyDataSetChanged="@{vm.notify}"
+            notifyDataSetChanged="@{true}"
             submitList="@{vm.data}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/tv"
+            android:layout_above="@+id/tv2"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_main_list" />
 
         <TextView
-            android:id="@+id/tv"
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@+id/tv1"
+            android:gravity="center"
+            android:onClick="@{()->click.toast2()}"
+            android:text="click me" />
+
+        <TextView
+            android:id="@+id/tv1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:gravity="center"
-            android:onClick="@{()->click.toast()}"
+            android:onClick="@{()->click.toast1()}"
             android:text="click me" />
 
     </RelativeLayout>

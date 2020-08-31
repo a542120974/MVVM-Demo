@@ -27,7 +27,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             adapter="@{adapter}"
-            notifyDataSetChanged="@{true}"
+            notifyDataSetChanged="@{vm.notify}"
             submitList="@{vm.data}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,7 +42,7 @@
             android:layout_above="@+id/tv1"
             android:gravity="center"
             android:onClick="@{()->click.toast2()}"
-            android:text="click me" />
+            android:text="change item" />
 
         <TextView
             android:id="@+id/tv1"

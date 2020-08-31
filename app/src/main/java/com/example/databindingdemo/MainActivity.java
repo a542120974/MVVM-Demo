@@ -3,10 +3,6 @@ package com.example.databindingdemo;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-
 import com.example.databindingdemo.adapter.ListAdapter;
 import com.example.databindingdemo.base.BaseActivity;
 import com.example.databindingdemo.bean.ListBean;
@@ -47,27 +43,36 @@ public class MainActivity extends BaseActivity {
     public class Click {
 
         public void toast1() {
-            List<ListBean> li = new ArrayList<>();
-            li.add(new ListBean("1111"));
-            li.add(new ListBean("222"));
-            li.add(new ListBean("333"));
-            li.add(new ListBean("444"));
-            li.add(new ListBean("555"));
-            li.add(new ListBean("666"));
-            viewModel.data.setValue(li);
+            new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    List<ListBean> li = new ArrayList<>();
+                    for (int i = 0; i < 15; i++) {
+                        li.add(new ListBean("11" + i));
+                    }
+
+                    viewModel.data.postValue(li);
+                }
+            }.start();
+
             Toast.makeText(getApplicationContext(), "click", Toast.LENGTH_SHORT).show();
         }
 
         public void toast2() {
-            List<ListBean> li = new ArrayList<>();
-            li.add(new ListBean("aaa"));
-            li.add(new ListBean("ssss"));
-            li.add(new ListBean("dddd"));
-            li.add(new ListBean("ffff"));
-            li.add(new ListBean("ggg"));
-            li.add(new ListBean("hhh"));
+            List<ListBean> li = viewModel.data.getValue();
+
+            if (li != null) {
+                li.get(0).setText("ssssssssss");
+            }
+
             viewModel.data.setValue(li);
-            Toast.makeText(getApplicationContext(), "click", Toast.LENGTH_SHORT).show();
+            viewModel.notify.setValue(true);
+            Toast.makeText(getApplicationContext(), "change item", Toast.LENGTH_SHORT).show();
         }
     }
 }

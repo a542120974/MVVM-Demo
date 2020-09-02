@@ -1,8 +1,11 @@
-package com.example.databindingdemo;
+package com.example.databindingdemo.ui;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Toast;
 
+import com.example.databindingdemo.BR;
+import com.example.databindingdemo.R;
 import com.example.databindingdemo.adapter.ListAdapter;
 import com.example.databindingdemo.base.BaseActivity;
 import com.example.databindingdemo.bean.ListBean;
@@ -22,13 +25,14 @@ public class MainActivity extends BaseActivity {
     protected DataBindingConfig getDataBindingConfig() {
         return new DataBindingConfig(R.layout.activity_main, BR.vm, viewModel)
                 .addBindingParam(BR.click, new Click())
+                .addBindingParam(BR.event_vm, eventViewModel)
                 .addBindingParam(BR.adapter, new ListAdapter(this));
     }
 
     @Override
     protected void initViewModel() {
         viewModel = getActivityViewModel(ListBeanViewModel.class);
-        eventViewModel = getAppViewModel(EventViewModel.class);
+        eventViewModel =  EventViewModel.getInstance();
     }
 
     @Override
@@ -40,12 +44,27 @@ public class MainActivity extends BaseActivity {
             viewModel.notify.setValue(true);
         });
 
+        eventViewModel.clickText.observe(this, s -> {
+            System.out.println("main observe");
+            Toast.makeText(MainActivity.this, "change", Toast.LENGTH_SHORT).show();
+        });
+
         viewModel.request.request();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (TextUtils.isEmpty(eventViewModel.clickText.getValue())){
+            System.out.println("event text null");
+        }else {
+            System.out.println(eventViewModel.clickText.getValue());
+        }
     }
 
     public class Click {
 
-        public void toast1() {
+        public void click1() {
             new Thread() {
                 @Override
                 public void run() {
@@ -67,7 +86,7 @@ public class MainActivity extends BaseActivity {
             Toast.makeText(getApplicationContext(), "click", Toast.LENGTH_SHORT).show();
         }
 
-        public void toast2() {
+        public void click2() {
             List<ListBean> li = viewModel.data.getValue();
 
             if (li != null) {
@@ -77,6 +96,10 @@ public class MainActivity extends BaseActivity {
             viewModel.data.setValue(li);
             viewModel.notify.setValue(true);
             Toast.makeText(getApplicationContext(), "change item", Toast.LENGTH_SHORT).show();
+        }
+
+        public void click3() {
+            SecondActivity.startMe(MainActivity.this);
         }
     }
 }

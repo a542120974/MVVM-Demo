@@ -2,17 +2,21 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <data>
 
         <variable
             name="click"
-            type="com.example.databindingdemo.MainActivity.Click" />
+            type="com.example.databindingdemo.ui.MainActivity.Click" />
 
         <variable
             name="adapter"
             type="com.example.databindingdemo.adapter.ListAdapter" />
+
+        <variable
+            name="event_vm"
+            type="com.example.databindingdemo.model.EventViewModel" />
 
         <variable
             name="vm"
@@ -31,9 +35,18 @@
             submitList="@{vm.data}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/tv2"
+            android:layout_above="@+id/tv3"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_main_list" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@+id/tv2"
+            android:gravity="center"
+            android:onClick="@{()->click.click3()}"
+            android:text="@{event_vm.clickText}" />
 
         <TextView
             android:id="@+id/tv2"
@@ -41,7 +54,7 @@
             android:layout_height="50dp"
             android:layout_above="@+id/tv1"
             android:gravity="center"
-            android:onClick="@{()->click.toast2()}"
+            android:onClick="@{()->click.click2()}"
             android:text="change item" />
 
         <TextView
@@ -50,7 +63,7 @@
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:gravity="center"
-            android:onClick="@{()->click.toast1()}"
+            android:onClick="@{()->click.click1()}"
             android:text="click me" />
 
     </RelativeLayout>

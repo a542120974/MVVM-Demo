@@ -1,5 +1,6 @@
 package com.example.databindingdemo.model;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 /**
@@ -7,4 +8,16 @@ import androidx.lifecycle.ViewModel;
  */
 public class EventViewModel extends ViewModel {
 
+    private static EventViewModel INSTANCE = null;
+
+    public MutableLiveData<String> clickText = new MutableLiveData<>();
+
+    private EventViewModel() {
+    }
+
+    public static EventViewModel getInstance() {
+        if (INSTANCE == null)
+            INSTANCE = new EventViewModel();
+        return INSTANCE;
+    }
 }

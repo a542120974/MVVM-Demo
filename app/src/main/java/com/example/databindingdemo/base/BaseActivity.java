@@ -46,7 +46,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public <T extends ViewModel> T getActivityViewModel(@NonNull Class<T> modelClass) {
         if (mActivityProvider == null) {
-            mActivityProvider = new ViewModelProvider(this, getAppFactory(this));
+            mActivityProvider = new ViewModelProvider(this,getAppFactory(this));
         }
         return mActivityProvider.get(modelClass);
     }

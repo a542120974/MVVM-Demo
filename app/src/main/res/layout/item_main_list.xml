@@ -5,7 +5,7 @@
 
         <variable
             name="bean"
-            type="com.example.databindingdemo.bean.ListBean" />
+            type="com.example.databindingdemo.model.bean.ListBean" />
     </data>
 
     <TextView

@@ -1,10 +1,10 @@
-package com.example.databindingdemo.repository;
+package com.example.databindingdemo.model.repository;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.databindingdemo.bean.ListBean;
-import com.example.databindingdemo.request.RequestManager;
+import com.example.databindingdemo.model.bean.ListBean;
+import com.example.databindingdemo.request.RequestManagerListBean;
 
 import java.util.List;
 
@@ -22,6 +22,6 @@ public class ListBeanRepository {
     }
 
     public void request() {
-        RequestManager.getInstance().getList(listBeans -> listLiveData.setValue(listBeans));
+        RequestManagerListBean.getInstance().getList(listBeans -> listLiveData.setValue(listBeans));
     }
 }

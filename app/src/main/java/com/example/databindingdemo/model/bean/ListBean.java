@@ -1,4 +1,4 @@
-package com.example.databindingdemo.bean;
+package com.example.databindingdemo.model.bean;
 
 public class ListBean {
 

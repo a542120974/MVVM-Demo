@@ -1,10 +1,10 @@
-package com.example.databindingdemo.model;
+package com.example.databindingdemo.ui.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.databindingdemo.bean.ListBean;
-import com.example.databindingdemo.repository.ListBeanRepository;
+import com.example.databindingdemo.model.bean.ListBean;
+import com.example.databindingdemo.model.repository.ListBeanRepository;
 
 import java.util.List;
 

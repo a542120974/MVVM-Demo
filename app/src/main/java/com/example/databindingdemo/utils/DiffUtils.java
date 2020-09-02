@@ -3,7 +3,7 @@ package com.example.databindingdemo.utils;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
-import com.example.databindingdemo.bean.ListBean;
+import com.example.databindingdemo.model.bean.ListBean;
 
 public class DiffUtils {
 

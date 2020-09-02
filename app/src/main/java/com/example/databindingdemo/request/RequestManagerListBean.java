@@ -1,21 +1,22 @@
 package com.example.databindingdemo.request;
 
-import com.example.databindingdemo.bean.ListBean;
+import com.example.databindingdemo.model.bean.ListBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RequestManager {
+public class RequestManagerListBean implements ResponseCallBackListBean {
 
-    private static final RequestManager REQUEST_MANAGER = new RequestManager();
+    private static final RequestManagerListBean REQUEST_MANAGER = new RequestManagerListBean();
 
-    private RequestManager() {
+    private RequestManagerListBean() {
     }
 
-    public static RequestManager getInstance() {
+    public static RequestManagerListBean getInstance() {
         return REQUEST_MANAGER;
     }
 
+    @Override
     public void getList(DataResult<List<ListBean>> result) {
         List<ListBean> list = new ArrayList<>();
         for (int i = 0; i < 15; i++) {

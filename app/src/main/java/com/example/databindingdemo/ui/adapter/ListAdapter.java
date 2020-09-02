@@ -1,4 +1,4 @@
-package com.example.databindingdemo.adapter;
+package com.example.databindingdemo.ui.adapter;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.databindingdemo.R;
 import com.example.databindingdemo.base.BaseDataBindingAdapter;
-import com.example.databindingdemo.bean.ListBean;
+import com.example.databindingdemo.model.bean.ListBean;
 import com.example.databindingdemo.databinding.ItemMainListBinding;
 import com.example.databindingdemo.utils.DiffUtils;
 

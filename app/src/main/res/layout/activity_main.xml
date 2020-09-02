@@ -12,15 +12,15 @@
 
         <variable
             name="adapter"
-            type="com.example.databindingdemo.adapter.ListAdapter" />
+            type="com.example.databindingdemo.ui.adapter.ListAdapter" />
 
         <variable
             name="event_vm"
-            type="com.example.databindingdemo.model.EventViewModel" />
+            type="com.example.databindingdemo.ui.viewmodel.EventViewModel" />
 
         <variable
             name="vm"
-            type="com.example.databindingdemo.model.ListBeanViewModel" />
+            type="com.example.databindingdemo.ui.viewmodel.ListBeanViewModel" />
 
     </data>
 

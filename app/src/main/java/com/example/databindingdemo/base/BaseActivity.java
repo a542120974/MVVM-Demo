@@ -1,16 +1,16 @@
 package com.example.databindingdemo.base;
 
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import android.util.SparseArray;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import android.util.SparseArray;
 
 import com.example.databindingdemo.utils.DataBindingConfig;
 

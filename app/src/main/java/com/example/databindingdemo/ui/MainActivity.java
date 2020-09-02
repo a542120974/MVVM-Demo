@@ -6,11 +6,11 @@ import android.widget.Toast;
 
 import com.example.databindingdemo.BR;
 import com.example.databindingdemo.R;
-import com.example.databindingdemo.adapter.ListAdapter;
 import com.example.databindingdemo.base.BaseActivity;
-import com.example.databindingdemo.bean.ListBean;
-import com.example.databindingdemo.model.EventViewModel;
-import com.example.databindingdemo.model.ListBeanViewModel;
+import com.example.databindingdemo.model.bean.ListBean;
+import com.example.databindingdemo.ui.adapter.ListAdapter;
+import com.example.databindingdemo.ui.viewmodel.EventViewModel;
+import com.example.databindingdemo.ui.viewmodel.ListBeanViewModel;
 import com.example.databindingdemo.utils.DataBindingConfig;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initViewModel() {
         viewModel = getActivityViewModel(ListBeanViewModel.class);
-        eventViewModel =  EventViewModel.getInstance();
+        eventViewModel = EventViewModel.getInstance();
     }
 
     @Override
@@ -55,9 +55,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (TextUtils.isEmpty(eventViewModel.clickText.getValue())){
+        if (TextUtils.isEmpty(eventViewModel.clickText.getValue())) {
             System.out.println("event text null");
-        }else {
+        } else {
             System.out.println(eventViewModel.clickText.getValue());
         }
     }

@@ -1,4 +1,4 @@
-package com.example.databindingdemo.request;
+package com.example.databindingdemo.model.request;
 
 import com.example.databindingdemo.model.bean.ListBean;
 

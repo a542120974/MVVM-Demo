@@ -8,8 +8,8 @@ import androidx.databinding.library.baseAdapters.BR;
 
 import com.example.databindingdemo.R;
 import com.example.databindingdemo.base.BaseActivity;
-import com.example.databindingdemo.ui.viewmodel.EventViewModel;
-import com.example.databindingdemo.ui.viewmodel.SecondViewModel;
+import com.example.databindingdemo.viewmodel.EventViewModel;
+import com.example.databindingdemo.viewmodel.SecondViewModel;
 import com.example.databindingdemo.utils.DataBindingConfig;
 
 public class SecondActivity extends BaseActivity {

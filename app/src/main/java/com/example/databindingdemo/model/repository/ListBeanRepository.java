@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.databindingdemo.model.bean.ListBean;
-import com.example.databindingdemo.request.RequestManagerListBean;
+import com.example.databindingdemo.model.request.RequestManagerListBean;
 
 import java.util.List;
 

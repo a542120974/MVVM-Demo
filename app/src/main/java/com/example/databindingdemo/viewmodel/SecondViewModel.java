@@ -1,4 +1,4 @@
-package com.example.databindingdemo.ui.viewmodel;
+package com.example.databindingdemo.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 

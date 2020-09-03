@@ -16,11 +16,11 @@
 
         <variable
             name="event_vm"
-            type="com.example.databindingdemo.ui.viewmodel.EventViewModel" />
+            type="com.example.databindingdemo.viewmodel.EventViewModel" />
 
         <variable
             name="vm"
-            type="com.example.databindingdemo.ui.viewmodel.ListBeanViewModel" />
+            type="com.example.databindingdemo.viewmodel.ListBeanViewModel" />
 
     </data>
 

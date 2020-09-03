@@ -10,15 +10,11 @@ public class BaseApplication extends Application implements ViewModelStoreOwner 
 
     private ViewModelStore viewModelStore;
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        viewModelStore = new ViewModelStore();
-    }
-
     @NonNull
     @Override
     public ViewModelStore getViewModelStore() {
+        if (viewModelStore == null)
+            viewModelStore = new ViewModelStore();
         return viewModelStore;
     }
 }

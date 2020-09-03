@@ -11,6 +11,9 @@ public class EventViewModel extends ViewModel {
 
     private static EventViewModel INSTANCE = null;
 
+    public static final UnPeekLiveData<Boolean> test =
+            new UnPeekLiveData.Builder<Boolean>().setEventSurvivalTime(500).create();
+
     public UnPeekLiveData<String> clickText = new UnPeekLiveData<>();
 
     private EventViewModel() {

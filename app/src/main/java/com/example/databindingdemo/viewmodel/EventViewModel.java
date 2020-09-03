@@ -1,7 +1,8 @@
 package com.example.databindingdemo.viewmodel;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.kunminx.architecture.ui.callback.UnPeekLiveData;
 
 /**
  * 用于页面之间通信
@@ -10,7 +11,7 @@ public class EventViewModel extends ViewModel {
 
     private static EventViewModel INSTANCE = null;
 
-    public MutableLiveData<String> clickText = new MutableLiveData<>();
+    public UnPeekLiveData<String> clickText = new UnPeekLiveData<>();
 
     private EventViewModel() {
     }

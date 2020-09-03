@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel;
 import com.kunminx.architecture.ui.callback.UnPeekLiveData;
 
 /**
- * 用于页面之间通信
+ * 使用单例ViewModel，断开lifecycle生命周期结束自调clear，用于页面之间通信
  */
 public class EventViewModel extends ViewModel {
 

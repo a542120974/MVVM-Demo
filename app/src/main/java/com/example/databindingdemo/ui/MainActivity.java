@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity {
                     }
 
                     viewModel.data.postValue(li);
-                    viewModel.notify.setValue(true);
+                    viewModel.notify.postValue(true);
                 }
             }.start();
 
